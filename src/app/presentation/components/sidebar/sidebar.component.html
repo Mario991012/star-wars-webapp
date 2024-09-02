@@ -1,33 +1,16 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav mode="side" opened="true" class="sidenav">
-      <mat-toolbar color="primary">
-        <span>Menu</span>
-      </mat-toolbar>
-      <mat-nav-list>
-        <mat-list-item routerLink="/films">
-          <mat-icon>film</mat-icon>
-          <span>Films</span>
-        </mat-list-item>
-        <mat-list-item routerLink="/people">
-          <mat-icon>people</mat-icon>
-          <span>People</span>
-        </mat-list-item>
-        <mat-list-item routerLink="/planets">
-          <mat-icon>public</mat-icon>
-          <span>Planets</span>
-        </mat-list-item>
-        <mat-list-item routerLink="/starships">
-          <mat-icon>starship</mat-icon>
-          <span>Starships</span>
-        </mat-list-item>
-        <mat-list-item routerLink="/vehicles">
-          <mat-icon>commute</mat-icon>
-          <span>Vehicles</span>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <ng-content></ng-content>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+  <mat-sidenav mode="side" opened="true" class="sidenav">
+    <mat-toolbar color="primary">
+      <span>Menu</span>
+    </mat-toolbar>
+    <mat-nav-list *ngIf="routes">
+      <mat-list-item *ngFor="let route of routes" [routerLink]="route.route">
+        <mat-icon>{{route.icon}}</mat-icon>
+        <span>{{route.title}}</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

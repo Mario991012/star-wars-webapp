@@ -1,5 +1,7 @@
 <div class="authorized-layout">
-    <app-sidebar></app-sidebar>
+    <app-sidebar
+        [routes]="routes"
+    ></app-sidebar>
     <main class="content m-4">
         <img src="../assets/img/star-wars-logo-3-1.png" alt="Star Wars" id="top-logo">
         <router-outlet></router-outlet>
