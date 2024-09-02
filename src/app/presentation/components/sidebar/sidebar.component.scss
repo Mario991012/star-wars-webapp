@@ -1,0 +1,25 @@
+.sidenav-container {
+    height: 100vh;
+  }
+  
+  .sidenav {
+    width: 250px;
+  }
+  
+  mat-nav-list {
+    padding: 0;
+  }
+  
+  mat-list-item {
+    padding: 16px;
+    cursor: pointer;
+  }
+  
+  mat-list-item mat-icon {
+    margin-right: 16px;
+  }
+  
+  mat-sidenav-content {
+    padding: 16px;
+  }
+  
