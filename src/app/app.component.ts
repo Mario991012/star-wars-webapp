@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FilmListComponent } from './presentation/pages/film-list/film-list.component';
 
 @Component({
-  selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
+  imports: [
+    CommonModule, 
+    RouterModule,
+    FilmListComponent
+  ],
 })
 export class AppComponent {
-  title = 'start-wars-webapp';
+  title = 'Star Wars';
 }
