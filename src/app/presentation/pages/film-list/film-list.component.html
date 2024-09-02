@@ -1,11 +1,11 @@
+<!-- src/app/presentation/pages/film-list/film-list.component.html -->
 <div class="film-list">
-  <h2>List of Films</h2>
+  <h2>Star Wars - List of Films</h2>
   <div *ngIf="films$ | async as films;">
-    <div *ngIf="films.length">
-      <div *ngFor="let film of films">
+    <div *ngIf="films.length" class="row">
+      <div *ngFor="let film of films" class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mb-4">
         <app-film-card [film]="film"></app-film-card>
       </div>
     </div>
-    <ng-template #loading>Loading...</ng-template>
   </div>
 </div>
