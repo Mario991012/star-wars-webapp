@@ -1,0 +1,11 @@
+<div class="film-list">
+  <h2>List of Films</h2>
+  <div *ngIf="films$ | async as films;">
+    <div *ngIf="films.length">
+      <div *ngFor="let film of films">
+        <app-film-card [film]="film"></app-film-card>
+      </div>
+    </div>
+    <ng-template #loading>Loading...</ng-template>
+  </div>
+</div>
