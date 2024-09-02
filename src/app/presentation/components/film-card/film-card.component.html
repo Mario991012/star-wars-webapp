@@ -1,0 +1,21 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="centered-div">
+        <h3>{{ film.title }}</h3>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="centered-div">
+      <p><strong>Director:</strong> {{ film.director }}</p>
+      <p><strong>Release Date:</strong> {{ film.releaseDate | date:"dd/MM/YYYY" }}</p>
+      <p><strong>Episode:</strong> {{ film.episodeID }}</p>
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="centered-div">
+    <mat-chip-set aria-label="Film producers">
+      <mat-chip *ngFor="let producer of film.producers">{{ producer }}</mat-chip>
+    </mat-chip-set>
+  </mat-card-footer>
+</mat-card>
