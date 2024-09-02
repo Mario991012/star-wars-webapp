@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { RouteData } from '../../interfaces/route-data.interface';
 
 @Component({
@@ -34,4 +34,10 @@ export class AuthorizedLayoutComponent {
       icon: "commute"
     },
   ]
+
+  constructor( private router: Router ) {}
+
+  goToRoute( route: string ): void {
+    this.router.navigate([ route ]);
+  }
 }

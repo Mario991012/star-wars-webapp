@@ -1,10 +1,10 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side" opened="true" class="sidenav">
     <mat-toolbar color="primary">
-      <span>Menu</span>
+      <span><img src="../../../../assets/img/star-wars-logo-3-1.png" style="max-width: 10%; min-width: 75px;"></span>
     </mat-toolbar>
     <mat-nav-list *ngIf="routes">
-      <mat-list-item *ngFor="let route of routes" [routerLink]="route.route">
+      <mat-list-item *ngFor="let route of routes" [routerLink]="route.route" (clicked)="returnRoute( route.route )">
         <mat-icon>{{route.icon}}</mat-icon>
         <span>{{route.title}}</span>
       </mat-list-item>

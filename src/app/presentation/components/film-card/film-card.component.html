@@ -15,7 +15,9 @@
   </mat-card-content>
   <mat-card-footer class="centered-div">
     <mat-chip-set aria-label="Film producers">
-      <mat-chip *ngFor="let producer of film.producers">{{ producer }}</mat-chip>
+      <div>
+        <mat-chip *ngFor="let producer of film.producers">{{ producer }}</mat-chip>
+      </div>
     </mat-chip-set>
   </mat-card-footer>
 </mat-card>

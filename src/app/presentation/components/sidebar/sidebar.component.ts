@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouteData } from '../../interfaces/route-data.interface';
 import { MatList, MatListItem, MatNavList } from '@angular/material/list';
 import {
@@ -32,4 +32,9 @@ import { CommonModule } from '@angular/common';
 })
 export class SidebarComponent {
   @Input() routes: RouteData[] = [];
+  @Output() selectedRouteEmitter: EventEmitter<string> = new EventEmitter<string>();
+
+  returnRoute( route: string ) {
+    this.selectedRouteEmitter.emit( route );
+  }
 }

@@ -1,9 +1,13 @@
-<div class="authorized-layout">
-    <app-sidebar
+<!-- src/app/presentation/layouts/authorized-layout/authorized-layout.component.html -->
+<div class="authorized-layout-container">
+    <div class="sidebar-container">
+        <app-sidebar
         [routes]="routes"
+        (selectedRouteEmitter)="goToRoute( $event )"
     ></app-sidebar>
-    <main class="content m-4">
-        <img src="../assets/img/star-wars-logo-3-1.png" alt="Star Wars" id="top-logo">
-        <router-outlet></router-outlet>
-    </main>
-</div>
+    </div>
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
