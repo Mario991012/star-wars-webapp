@@ -1,0 +1,28 @@
+.sidenav-container {
+    height: 100vh;
+    margin: 0;
+    border-radius: 8px;
+}
+
+.sidenav {
+    width: 250px;
+    border-radius: 0;
+}
+
+mat-toolbar {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+mat-nav-list {
+    padding: 0;
+}
+
+mat-list-item {
+    padding: 16px;
+    cursor: pointer;
+}
+
+mat-list-item mat-icon {
+    margin-right: 16px;
+}

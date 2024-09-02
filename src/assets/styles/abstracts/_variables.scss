@@ -1,10 +1,12 @@
 // Colors
-$color-primary: #1c1c1c; // Dark, almost black
-$color-secondary: #ffcc00; // Star Wars yellow
-$color-accent: #f5f5f5; // Light grey for accents
-$color-warning: #ff4136; // Red for warnings
-$color-info: #007bff; // Blue for informational elements
-$color-success: #2ecc71; // Green for success messages
+:root {
+    --color-primary: #1c1c1c; // Dark, almost black
+    --color-secondary: #ffcc00; // Star Wars yellow
+    --color-accent: #f5f5f5; // Light grey for accents
+    --color-warning: #ff4136; // Red for warnings
+    --color-info: #007bff; // Blue for informational elements
+    --color-success: #2ecc71; // Green for success messages
+}
 
 // Typography
 $font-primary: 'Starjedi', sans-serif; // Custom Star Wars font
