@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApolloClient, InMemoryCache } from '@apollo/client/core';
+import { ApolloClient, DocumentNode, InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from '@apollo/client/link/http';
 import { environment } from '../../../../environments/environment';
 
@@ -24,5 +24,12 @@ export class ApolloClientService {
 
   public getClient() {
     return this.client;
+  }
+
+  public executeQuery(query: DocumentNode, variables?: any) {
+    return this.client.query({
+      query,
+      variables,
+    });
   }
 }
