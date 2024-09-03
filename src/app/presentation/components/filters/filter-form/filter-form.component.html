@@ -1,0 +1,9 @@
+<form [formGroup]="filterForm">
+    <ng-container *ngFor="let field of fields">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ field.label }}</mat-label>
+        <input matInput [formControlName]="field.formControlName">
+      </mat-form-field>
+    </ng-container>
+  </form>
+  
