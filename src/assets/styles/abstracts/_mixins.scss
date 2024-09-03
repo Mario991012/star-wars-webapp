@@ -1,12 +1,10 @@
-// Mixin for Flex Centering
 @mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-// Mixin for Button Styles
-@mixin button-style($bg-color, $text-color) {
+@mixin card-style($bg-color, $text-color) {
     background-color: $bg-color;
     color: $text-color;
     padding: $spacing-small $spacing-medium;
@@ -23,7 +21,6 @@
     }
 }
 
-// Mixin for Typography
 @mixin typography($font-family, $font-size, $font-weight: normal, $line-height: 1.5, $letter-spacing: normal) {
     font-family: $font-family;
     font-size: $font-size;
@@ -32,13 +29,12 @@
     letter-spacing: $letter-spacing;
 }
 
-// Mixin for Card Style
 @mixin card-style($padding: $spacing-medium, $radius: $border-radius-medium, $shadow: $shadow-default) {
-    background-color: $color-primary;
+    background-color: #fff;
     padding: $padding;
     border-radius: $radius;
     box-shadow: $shadow;
-    color: $color-accent;
+    color: var(--color-primary);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {

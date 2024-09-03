@@ -1,0 +1,11 @@
+@import '../abstracts//mixins';
+
+.centered-container {
+    @include flex-center;
+    flex-direction: column;
+}
+
+.complete-centered-container {
+    @extend .centered-container;
+    height: 100vh;
+}

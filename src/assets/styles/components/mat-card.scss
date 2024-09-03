@@ -1,4 +1,7 @@
+@import '../abstracts/mixins';
+
 mat-card {
+    @include card-style(white, black);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
