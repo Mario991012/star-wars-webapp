@@ -4,23 +4,27 @@ import { UnauthorizedLayoutComponent } from './presentation/layouts/unauthorized
 import { LoginComponent } from './presentation/pages/login/login.component';
 import { AuthorizedLayoutComponent } from './presentation/layouts/authorized-layout/authorized-layout.component';
 import { NotFoundComponent } from './presentation/pages/not-found/not-found.component';
+import { AuthGuard } from './core/guards/auth/auth.guard';
 
 export const routes: Routes = [
     {
-        path: "login",
-        component: UnauthorizedLayoutComponent,
+        path: "star-wars",
+        component: AuthorizedLayoutComponent,
+        canActivate: [AuthGuard],
         children: [
-            { path: "", component: LoginComponent },
-            { path: "**", component: NotFoundComponent },
-        ],
+            { path: "", redirectTo: "film-list", pathMatch: "full" },
+            { path: "home", redirectTo: "film-list", pathMatch: "full" },
+            { path: "film-list", component: FilmListComponent },
+            { path: "**", component: NotFoundComponent }
+        ]
     },
     {
         path: "",
-        component: AuthorizedLayoutComponent,
+        component: UnauthorizedLayoutComponent,
         children: [
-            { path: "", redirectTo: "film-list", pathMatch: "full" },
-            { path: "film-list", component: FilmListComponent },
-            { path: "**", component: NotFoundComponent },
+            { path: "login", component: LoginComponent },
+            { path: "", redirectTo: "login", pathMatch: "full" },
+            { path: "**", redirectTo: "login", pathMatch: "full" }
         ]
-    }
+    },
 ];

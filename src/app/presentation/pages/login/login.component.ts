@@ -60,8 +60,10 @@ export class LoginComponent implements OnDestroy {
         .validateCredentials(email, password)
         .pipe(takeUntil(this.destroy$))
         .subscribe((response: IResponse) => {
+          console.log(response)
           if (response.returnCode === 0) {
-            this.router.navigate(['']);
+            this.loginService.saveToken( response?.data?.accessToken || undefined );
+            this.router.navigate(['/star-wars/home']);
           } else {
             this.snackBar.open(
               response.message || 'Incorrect credentials. Try again.',

@@ -14,25 +14,25 @@ export class AuthorizedLayoutComponent {
 
   routes: RouteData[] = [
     {
-      route: "/film-list",
+      route: "/star-wars/film-list",
       title: "Films",
       icon: "dashboard",
       selected: false,
     },
     {
-      route: "/people-list",
+      route: "/star-wars/people-list",
       title: "People",
       icon: "people",
       selected: false,
     },
     {
-      route: "/planets",
+      route: "/star-wars/planets",
       title: "Planets",
       icon: "public",
       selected: false,
     },
     {
-      route: "vehicles",
+      route: "/star-wars/vehicles",
       title: "Vehicles",
       icon: "commute",
       selected: false,
