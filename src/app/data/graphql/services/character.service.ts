@@ -34,7 +34,7 @@ export class CharacterService {
       this.apolloClientService
         .getClient()
         .query({
-          query: GET_ALL_FILMS_METADATA,
+          query: GET_ALL_CHARACTERS_METADATA,
         })
         .then((result: AllCharactersData) => {
           observer.next(result?.data?.allPeople?.people);

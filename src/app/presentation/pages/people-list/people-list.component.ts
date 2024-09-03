@@ -39,7 +39,7 @@ export class PeopleListComponent {
   private getCharactersMetadata(): void {
     this.characters$ = this.characterService.getAllCharactersMetadata().pipe(
       takeUntil(this.destroy$),
-      map((result) => result || []),
+      map((result) => result || ["error"]),
       catchError((error) => {
         console.error('Error fetching character list:', error);
         return [
