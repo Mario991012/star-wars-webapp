@@ -5,6 +5,7 @@ import { LoginComponent } from './presentation/pages/login/login.component';
 import { AuthorizedLayoutComponent } from './presentation/layouts/authorized-layout/authorized-layout.component';
 import { NotFoundComponent } from './presentation/pages/not-found/not-found.component';
 import { AuthGuard } from './core/guards/auth/auth.guard';
+import { PeopleListComponent } from './presentation/pages/people-list/people-list.component';
 
 export const routes: Routes = [
     {
@@ -15,6 +16,7 @@ export const routes: Routes = [
             { path: "", redirectTo: "film-list", pathMatch: "full" },
             { path: "home", redirectTo: "film-list", pathMatch: "full" },
             { path: "film-list", component: FilmListComponent },
+            { path: "people-list", component: PeopleListComponent },
             { path: "**", component: NotFoundComponent }
         ]
     },

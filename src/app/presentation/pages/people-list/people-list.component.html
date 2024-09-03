@@ -1,0 +1,12 @@
+<div class="list">
+  <h2>Star Wars - List of People</h2>
+  <app-filter-form [fields]="filterFields" (filterChanged)="onFilterChanged($event)"></app-filter-form>
+  <div *ngIf="filteredCharacters$ | async as characters">
+    <div *ngIf="characters.length" class="row">
+      <div *ngFor="let character of characters" class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4"
+        (click)="openDataDialog(character)">
+        <app-character-card [character]="character"></app-character-card>
+      </div>
+    </div>
+  </div>
+</div>

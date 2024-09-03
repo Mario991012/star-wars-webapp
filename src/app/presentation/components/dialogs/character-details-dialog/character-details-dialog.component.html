@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>{{ name }}</h1>
+<mat-dialog-content class="mat-typography">
+
+  <h3>General Information</h3>
+  <ul>
+    <li>Birth year: {{ birthYear }}</li>
+    <li>Eye color: {{ eyeColor }}</li>
+    <li>Gender: {{ gender }}</li>
+    <li>Hair color: {{ hairColor }}</li>
+    <li>Height: {{ height }}</li>
+    <li>Homeworld: {{ homeworld }}</li>
+    <li>Skin color: {{ skinColor }}</li>
+  </ul>
+
+  <h3 *ngIf="starships.length > 0">Related Starships</h3>
+  <div *ngFor="let starship of starships">
+    <p class="starship">Starship: {{ starship?.name }}</p>
+    <ul>
+      <li>Passengers: {{ starship?.passengers }}</li>
+      <li>Crew: {{ starship?.crew }}</li>
+    </ul>
+  </div>
+  <div >
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Ok</button>
+</mat-dialog-actions>

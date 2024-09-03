@@ -40,6 +40,7 @@ $start-wars-webapp-theme: mat.define-theme((
 @import 'base/reset';
 @import 'base/typography';
 @import 'components/mat-card.scss';
+@import 'components/title.scss';
 @import 'pages/common.scss';
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import '@angular/material/prebuilt-themes/azure-blue.css';

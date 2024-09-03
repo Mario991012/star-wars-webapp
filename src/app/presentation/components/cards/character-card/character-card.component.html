@@ -1,0 +1,16 @@
+<mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>
+        <div class="centered-container">
+          <h3>{{ character?.name }}</h3>
+        </div>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="centered-container">
+        <p><strong>Birth day:</strong> {{ character?.birthYear }}</p>
+        <p><strong>Gender:</strong> {{ character?.gender }}</p>
+        <p><strong>Homeworld:</strong> {{ character?.homeworld?.name }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
