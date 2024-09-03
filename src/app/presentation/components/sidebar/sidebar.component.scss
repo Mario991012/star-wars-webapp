@@ -16,6 +16,7 @@ mat-toolbar {
 
 mat-nav-list {
     padding: 0;
+    margin-top: 4px;
 }
 
 mat-list-item {
@@ -25,4 +26,8 @@ mat-list-item {
 
 mat-list-item mat-icon {
     margin-right: 16px;
+}
+
+.selected {
+    background-color: var(--color-secondary);
 }

@@ -3,4 +3,5 @@ export interface RouteData {
     title: string;
     description?: string;
     icon?: string;
+    selected?: boolean;
 }

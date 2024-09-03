@@ -16,28 +16,36 @@ export class AuthorizedLayoutComponent {
     {
       route: "/film-list",
       title: "Films",
-      icon: "dashboard"
+      icon: "dashboard",
+      selected: false,
     },
     {
       route: "/people-list",
       title: "People",
-      icon: "people"
+      icon: "people",
+      selected: false,
     },
     {
       route: "/planets",
       title: "Planets",
-      icon: "public"
+      icon: "public",
+      selected: false,
     },
     {
       route: "vehicles",
       title: "Vehicles",
-      icon: "commute"
+      icon: "commute",
+      selected: false,
     },
   ]
 
   constructor( private router: Router ) {}
 
   goToRoute( route: string ): void {
+    this.routes = this.routes.map( actualRoute => ({
+      ...actualRoute,
+      selected: actualRoute.route === route,
+    }))
     this.router.navigate([ route ]);
   }
 }
