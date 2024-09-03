@@ -1,6 +1,13 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { ICharacter, Starship } from '../../../../data/graphql/interfaces/character.interface';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import {
+  ICharacter,
+  Starship,
+} from '../../../../data/graphql/interfaces/character.interface';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -9,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [CommonModule, MatDialogModule, MatButtonModule],
   templateUrl: './character-details-dialog.component.html',
-  styleUrl: './character-details-dialog.component.scss'
+  styleUrls: ['./character-details-dialog.component.scss'],
 })
 export class CharacterDetailsDialogComponent {
   constructor(
@@ -19,38 +26,38 @@ export class CharacterDetailsDialogComponent {
   ) {}
 
   get birthYear(): string {
-    return this.data.birthYear || '';
+    return this.data?.birthYear || '';
   }
 
   get eyeColor(): string {
-    return this.data.eyeColor || '';
+    return this.data?.eyeColor || '';
   }
 
   get gender(): string {
-    return this.data.gender || '';
+    return this.data?.gender || '';
   }
 
   get hairColor(): string {
-    return this.data.hairColor || '';
+    return this.data?.hairColor || '';
   }
 
   get height(): number {
-    return this.data.height || 0;
+    return this.data?.height || 0;
   }
 
   get homeworld(): string {
-    return this.data.homeworld?.name || '';
+    return this.data?.homeworld?.name || '';
   }
 
   get name(): string {
-    return this.data.name || '';
+    return this.data?.name || '';
   }
 
   get skinColor(): string {
-    return this.data.skinColor || '';
+    return this.data?.skinColor || '';
   }
 
   get starships(): Starship[] {
-    return this.data.starshipConnection?.starships || [];
+    return this.data?.starshipConnection?.starships || [];
   }
 }
