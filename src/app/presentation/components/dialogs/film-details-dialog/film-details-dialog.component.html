@@ -5,12 +5,12 @@
 
   <h3 *ngIf="characters">Characters</h3>
   <ul>
-    <li *ngFor="let character of characters">{{ character }}</li>
+    <li class="character" *ngFor="let character of characters">{{ character }}</li>
   </ul>
 
   <h3 *ngIf="planets">Planets</h3>
   <ul>
-    <li *ngFor="let planet of planets">{{ planet }}</li>
+    <li class="planet" *ngFor="let planet of planets">{{ planet }}</li>
   </ul>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
