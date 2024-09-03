@@ -1,18 +1,30 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { IFilterForm } from '../../../interfaces/filter-form.interface';
 
 @Component({
   selector: 'app-filter-form',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './filter-form.component.html',
-  styleUrls: ['./filter-form.component.scss']
+  styleUrls: ['./filter-form.component.scss'],
 })
 export class FilterFormComponent implements OnInit {
-  @Input() fields: { label: string, formControlName: string }[] = [];
+  @Input() fields: IFilterForm[] = [];
   filterForm!: FormGroup;
 
   @Output() filterChanged = new EventEmitter<any>();
