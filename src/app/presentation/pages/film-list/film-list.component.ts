@@ -12,6 +12,9 @@ import { catchError, map, takeUntil } from 'rxjs/operators';
 import { FilmService } from '../../../data/graphql/services/film.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FilmDetailsDialogComponent } from '../../components/dialogs/film-details-dialog/film-details-dialog.component';
+import { Film } from '../../../data/graphql/interfaces/film.interface';
+import { Character } from '../../../data/graphql/interfaces/character.interface';
+import { Planet } from '../../../data/graphql/interfaces/planet.interface';
 
 @Component({
   standalone: true,
@@ -22,7 +25,7 @@ import { FilmDetailsDialogComponent } from '../../components/dialogs/film-detail
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilmListComponent implements OnInit, OnDestroy {
-  films$!: Observable<any[]>;
+  films$!: Observable<Film[]>;
   error$!: Observable<string>;
   private destroy$ = new Subject<void>();
   private filmService = inject(FilmService);
@@ -37,16 +40,16 @@ export class FilmListComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  public openDataDialog(film: any) {
+  public openDataDialog(film: Film): void {
     this.dialog.open(FilmDetailsDialogComponent, {
       data: {
         title: film?.title,
         content: film?.openingCrawl,
         characters: film?.characterConnection?.characters?.map(
-          (character: any) => character?.name
+          (character: Character) => character?.name
         ),
         planets: film?.planetConnection?.planets?.map(
-          (planet: any) => planet?.name
+          (planet: Planet) => planet?.name
         ),
       },
     });
@@ -55,7 +58,7 @@ export class FilmListComponent implements OnInit, OnDestroy {
   private getFilmsMetadata(): void {
     this.films$ = this.filmService.getAllFilmsMetadata().pipe(
       takeUntil(this.destroy$),
-      map((result) => result?.data?.allFilms?.films || []),
+      map((result) => result || []),
       catchError((error) => {
         console.error('Error fetching film list:', error);
         return [

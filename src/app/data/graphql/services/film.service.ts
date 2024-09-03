@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApolloClientService } from '../base/apollo-client.service';
 import { GET_ALL_FILMS_METADATA, GET_FILMS_BY_TITLE } from '../mutations/films.mutations';
+import { AllFilmsData, Film } from '../interfaces/film.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,8 @@ export class FilmService {
 
   constructor(private apolloClientService: ApolloClientService) {}
 
-  public getFilmsByTitle(title: string): Observable<any> {
-    return new Observable((observer) => {
+  public getFilmsByTitle(title: string): Observable<AllFilmsData> {
+    return new Observable<AllFilmsData>((observer) => {
       this.apolloClientService
         .getClient()
         .query({
@@ -21,7 +22,7 @@ export class FilmService {
           }
         })
         .then((result) => {
-          observer.next(result.data.allFilms.films);
+          observer.next(result?.data);
           observer.complete();
         })
         .catch((error) => {
@@ -30,15 +31,15 @@ export class FilmService {
     });
   }
 
-  public getAllFilmsMetadata(): Observable<any> {
-    return new Observable((observer) => {
+  public getAllFilmsMetadata(): Observable<Film[]> {
+    return new Observable<Film[]>((observer) => {
       this.apolloClientService
         .getClient()
         .query({
           query: GET_ALL_FILMS_METADATA,
         })
-        .then((result) => {
-          observer.next(result);
+        .then((result: AllFilmsData) => {
+          observer.next(result?.data?.allFilms?.films);
           observer.complete();
         })
         .catch((error) => {
