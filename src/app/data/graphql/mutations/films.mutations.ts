@@ -19,6 +19,11 @@ export const GET_ALL_FILMS_METADATA = gql`
             name
           }
         }
+        planetConnection {
+          planets {
+            name
+          }
+        }
       }
     }
   }

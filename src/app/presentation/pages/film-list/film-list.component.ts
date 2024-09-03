@@ -37,20 +37,18 @@ export class FilmListComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  public openDataDialog( film: any) {
-    const dialogRef = this.dialog.open(FilmDetailsDialogComponent, {
+  public openDataDialog(film: any) {
+    this.dialog.open(FilmDetailsDialogComponent, {
       data: {
-        title: 'Custom Title',
-        text: 'This is custom content for the dialog.',
-        options: {
-          confirmText: 'Install',
-          cancelText: 'Cancel',
-        }
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+        title: film?.title,
+        content: film?.openingCrawl,
+        characters: film?.characterConnection?.characters?.map(
+          (character: any) => character?.name
+        ),
+        planets: film?.planetConnection?.planets?.map(
+          (planet: any) => planet?.name
+        ),
+      },
     });
   }
 
