@@ -1,0 +1,14 @@
+:host {
+    display: block;
+    height: 100vh;
+    background-image: url('../../../../assets/img/star_wars_millennium_falcon.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+  }
+  
+  .card {
+    box-shadow: var(--shadow-default);
+  }
+  
