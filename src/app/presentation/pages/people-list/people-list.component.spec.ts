@@ -7,8 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterCardComponent } from '../../components/cards/character-card/character-card.component';
 import { FilterFormComponent } from '../../components/filters/filter-form/filter-form.component';
 import { ICharacter } from '../../../data/graphql/interfaces/character.interface';
-import { MockComponent, MockProvider } from 'ng-mocks';
-import { CharacterDetailsDialogComponent } from '../../components/dialogs/character-details-dialog/character-details-dialog.component';
+import { MockComponent } from 'ng-mocks';
 
 describe('PeopleListComponent', () => {
   let component: PeopleListComponent;
