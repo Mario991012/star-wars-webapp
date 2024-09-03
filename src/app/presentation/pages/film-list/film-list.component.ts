@@ -6,14 +6,14 @@ import {
   inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilmCardComponent } from '../../components/film-card/film-card.component';
+import { FilmCardComponent } from '../../components/cards/film-card/film-card.component';
 import { Observable, Subject } from 'rxjs';
 import { catchError, map, takeUntil } from 'rxjs/operators';
 import { FilmService } from '../../../data/graphql/services/film.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FilmDetailsDialogComponent } from '../../components/dialogs/film-details-dialog/film-details-dialog.component';
 import { Film } from '../../../data/graphql/interfaces/film.interface';
-import { Character } from '../../../data/graphql/interfaces/character.interface';
+import { ICharacter } from '../../../data/graphql/interfaces/character.interface';
 import { Planet } from '../../../data/graphql/interfaces/planet.interface';
 
 @Component({
@@ -46,7 +46,7 @@ export class FilmListComponent implements OnInit, OnDestroy {
         title: film?.title,
         content: film?.openingCrawl,
         characters: film?.characterConnection?.characters?.map(
-          (character: Character) => character?.name
+          (character: ICharacter) => character?.name
         ),
         planets: film?.planetConnection?.planets?.map(
           (planet: Planet) => planet?.name

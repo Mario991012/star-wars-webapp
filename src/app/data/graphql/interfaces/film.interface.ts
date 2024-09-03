@@ -1,4 +1,4 @@
-import { Character } from './character.interface';
+import { ICharacter } from './character.interface';
 import { Planet } from './planet.interface';
 
 export interface Film {
@@ -12,7 +12,7 @@ export interface Film {
   id: string;
   openingCrawl: string;
   characterConnection: {
-    characters: Character[];
+    characters: ICharacter[];
   };
   planetConnection: {
     planets: Planet[];

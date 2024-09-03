@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FilmListComponent } from './film-list.component';
-import { FilmCardComponent } from '../../components/film-card/film-card.component';
+import { FilmCardComponent } from '../../components/cards/film-card/film-card.component';
 import { MatDialog } from '@angular/material/dialog';
 import { of } from 'rxjs';
 import { FilmService } from '../../../data/graphql/services/film.service';
