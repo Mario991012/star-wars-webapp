@@ -33,4 +33,16 @@ export class LoginService {
     const isValid = email === this.mockUser.email && password === this.mockUser.password;
     return of(isValid ? this.mockSuccessResponse : this.mockErrorResponse).pipe(delay(500));
   }
+
+  saveToken(token: string): void {
+    localStorage.setItem('authToken', token);
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('authToken');
+  }
+
+  clearToken(): void {
+    localStorage.removeItem('authToken');
+  }
 }
