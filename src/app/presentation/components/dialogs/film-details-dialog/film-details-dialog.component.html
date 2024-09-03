@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<mat-dialog-content class="mat-typography">
+  <h3>Introduction</h3>
+  <p>{{ content }}</p>
+
+  <h3 *ngIf="characters">Characters</h3>
+  <ul>
+    <li class="character" *ngFor="let character of characters">{{ character }}</li>
+  </ul>
+
+  <h3 *ngIf="planets">Planets</h3>
+  <ul>
+    <li class="planet" *ngFor="let planet of planets">{{ planet }}</li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Ok</button>
+</mat-dialog-actions>
