@@ -1,6 +1,7 @@
 <div class="list">
   <h2>Star Wars - List of Films</h2>
-  <div *ngIf="films$ | async as films">
+  <app-filter-form [fields]="filterFields" (filterChanged)="onFilterChanged($event)"></app-filter-form>
+  <div *ngIf="filteredFilms$ | async as films">
     <div *ngIf="films.length" class="row">
       <div *ngFor="let film of films" class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4" (click)="openDataDialog(film)">
         <app-film-card [film]="film"></app-film-card>
