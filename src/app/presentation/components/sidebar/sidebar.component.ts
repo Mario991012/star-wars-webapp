@@ -34,7 +34,15 @@ export class SidebarComponent {
   @Input() routes: RouteData[] = [];
   @Output() selectedRouteEmitter: EventEmitter<string> = new EventEmitter<string>();
 
-  returnRoute( route: string ) {
-    this.selectedRouteEmitter.emit( route );
+  returnRoute( route: RouteData ) {
+    this.defineSelected( route );
+    this.selectedRouteEmitter.emit( route.route );
+  }
+
+  private defineSelected( route: RouteData ): void {
+    this.routes = this.routes.map( actualRoute => ({
+      ...actualRoute,
+      selected: actualRoute.route === route.route,
+    }));
   }
 }
