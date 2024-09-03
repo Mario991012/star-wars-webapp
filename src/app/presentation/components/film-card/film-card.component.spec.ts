@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { FilmCardComponent } from './film-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatChip, MatChipSet } from '@angular/material/chips';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations'; // Necessary for Material components
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'; 
 
 describe('FilmCardComponent', () => {
   let component: FilmCardComponent;

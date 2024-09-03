@@ -57,7 +57,6 @@ describe('FilmDetailsDialogComponent', () => {
   });
 
   it('should display characters list if characters are provided', () => {
-    // Make sure to query the ul element and then all li items
     const charactersList = fixture.debugElement.queryAll(By.css('ul:nth-of-type(1) li'));
     expect(charactersList.length).toBe(mockData.characters.length);
     mockData.characters.forEach((character, index) => {
@@ -66,7 +65,6 @@ describe('FilmDetailsDialogComponent', () => {
   });
 
   it('should display planets list if planets are provided', () => {
-    // Make sure to query the ul element and then all li items
     const planetsList = fixture.debugElement.queryAll(By.css('ul:nth-of-type(2) li'));
     expect(planetsList.length).toBe(mockData.planets.length);
     mockData.planets.forEach((planet, index) => {
