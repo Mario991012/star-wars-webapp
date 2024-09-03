@@ -5,7 +5,7 @@
   </div>
   <div *ngIf="filteredCharacters$ | async as characters">
     <div *ngIf="characters.length" class="row">
-      <div *ngFor="let character of characters" class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4" (click)="openDataDialog(character)">
+      <div *ngFor="let character of characters" class="card col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4" (click)="openDataDialog(character)">
         <app-character-card [character]="character"></app-character-card>
       </div>
     </div>

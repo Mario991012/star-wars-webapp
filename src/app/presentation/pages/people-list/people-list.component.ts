@@ -7,6 +7,7 @@ import { CharacterDetailsDialogComponent } from '../../components/dialogs/charac
 import { CommonModule } from '@angular/common';
 import { CharacterCardComponent } from '../../components/cards/character-card/character-card.component';
 import { FilterFormComponent } from '../../components/filters/filter-form/filter-form.component';
+import { IFilterForm } from '../../interfaces/filter-form.interface';
 
 @Component({
   selector: 'app-people-list',
@@ -22,7 +23,7 @@ export class PeopleListComponent {
   private destroy$ = new Subject<void>();
   private characterService = inject(CharacterService);
   readonly dialog = inject(MatDialog);
-  filterFields = [
+  filterFields: IFilterForm[] = [
     { label: 'Birth year', formControlName: 'birthyear' },
     { label: 'Gender', formControlName: 'gender' },
     { label: 'Name', formControlName: 'name' },
@@ -58,7 +59,7 @@ export class PeopleListComponent {
     this.filteredCharacters$ = this.characters$;
 
     this.error$ = this.characters$.pipe(
-      map((characters) => (characters.length ? '' : 'No characters found'))
+      map((characters) => (characters.length ? `There has been an error` : 'No characters found'))
     );
   }
 
