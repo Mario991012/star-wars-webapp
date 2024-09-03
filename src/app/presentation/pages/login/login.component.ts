@@ -60,7 +60,6 @@ export class LoginComponent implements OnDestroy {
         .validateCredentials(email, password)
         .pipe(takeUntil(this.destroy$))
         .subscribe((response: IResponse) => {
-          console.log(response)
           if (response.returnCode === 0) {
             this.loginService.saveToken( response?.data?.accessToken || undefined );
             this.router.navigate(['/star-wars/home']);
