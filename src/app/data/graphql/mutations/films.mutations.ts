@@ -13,6 +13,12 @@ export const GET_ALL_FILMS_METADATA = gql`
         title
         episodeID
         id
+        openingCrawl
+        characterConnection {
+          characters {
+            name
+          }
+        }
       }
     }
   }

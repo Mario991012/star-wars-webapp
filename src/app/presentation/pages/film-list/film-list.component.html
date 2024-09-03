@@ -3,7 +3,7 @@
   <h2>Star Wars - List of Films</h2>
   <div *ngIf="films$ | async as films;">
     <div *ngIf="films.length" class="row">
-      <div *ngFor="let film of films" class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mb-4">
+      <div *ngFor="let film of films" class="col-lg-3 col-md-3 col-sm-12 col-xs-12 mb-4" (click)="openDataDialog( film )">
         <app-film-card [film]="film"></app-film-card>
       </div>
     </div>
