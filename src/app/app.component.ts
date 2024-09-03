@@ -15,5 +15,4 @@ import { FilmListComponent } from './presentation/pages/film-list/film-list.comp
   ],
 })
 export class AppComponent {
-  title = 'Star Wars';
 }
