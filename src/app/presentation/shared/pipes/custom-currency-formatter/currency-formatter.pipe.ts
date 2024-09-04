@@ -11,11 +11,15 @@ export class CurrencyFormatterPipe implements PipeTransform {
     useCommas: boolean = false
   ): string {
     if (typeof amount === 'string') {
-      amount = parseFloat(amount);
+      try {
+        amount = parseFloat(amount);
+      } catch (error) {
+        return "Unknown";
+      }
     }
     
     if (isNaN(amount)) {
-      return '';
+      return 'Unknown';
     }
     
     const formattedAmount = useCommas 

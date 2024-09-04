@@ -22,20 +22,31 @@ export const GET_ALL_VEHICLES_METADATA: DocumentNode = gql`
 `;
 
 export const GET_VEHICLE_BY_ID: DocumentNode = gql`
-  query VehicleById($id: String!) {
-    allVehicles(filter: { id: $id }) {
-      vehicles {
-        cargoCapacity
-        consumables
-        costInCredits
-        crew
-        id
-        model
-        name
-        maxAtmospheringSpeed
-        passengers
-        vehicleClass
-        manufacturers
+  query VehicleById($id: ID!) {
+    vehicle(id: $id) {
+      cargoCapacity
+      consumables
+      costInCredits
+      crew
+      model
+      name
+      maxAtmospheringSpeed
+      passengers
+      vehicleClass
+      manufacturers
+      id
+      filmConnection {
+        films {
+          title
+          producers
+          director
+          releaseDate
+        }
+      }
+      pilotConnection {
+        pilots {
+          name
+        }
       }
     }
   }

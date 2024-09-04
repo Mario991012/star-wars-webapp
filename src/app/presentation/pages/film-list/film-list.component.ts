@@ -12,7 +12,7 @@ import { catchError, map, takeUntil } from 'rxjs/operators';
 import { FilmService } from '../../../data/graphql/services/film.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FilmDetailsDialogComponent } from '../../components/dialogs/film-details-dialog/film-details-dialog.component';
-import { Film } from '../../../data/graphql/interfaces/film.interface';
+import { IFilm } from '../../../data/graphql/interfaces/film.interface';
 import { ICharacter } from '../../../data/graphql/interfaces/character.interface';
 import { Planet } from '../../../data/graphql/interfaces/planet.interface';
 import { IFilterForm } from '../../interfaces/filter-form.interface';
@@ -32,8 +32,8 @@ import { FilterFormComponent } from '../../components/filters/filter-form/filter
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilmListComponent implements OnInit, OnDestroy {
-  films$!: Observable<Film[]>;
-  filteredFilms$!: Observable<Film[]>;
+  films$!: Observable<IFilm[]>;
+  filteredFilms$!: Observable<IFilm[]>;
   error$!: Observable<string>;
   private destroy$ = new Subject<void>();
   private filmService = inject(FilmService);
@@ -54,7 +54,7 @@ export class FilmListComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  public openDataDialog(film: Film): void {
+  public openDataDialog(film: IFilm): void {
     this.dialog.open(FilmDetailsDialogComponent, {
       data: {
         title: film?.title,

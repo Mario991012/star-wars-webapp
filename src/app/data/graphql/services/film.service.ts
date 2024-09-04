@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApolloClientService } from '../base/apollo-client.service';
 import { GET_ALL_FILMS_METADATA, GET_FILMS_BY_TITLE } from '../mutations/films.mutations';
-import { AllFilmsData, Film } from '../interfaces/film.interface';
+import { AllFilmsData, IFilm } from '../interfaces/film.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -31,8 +31,8 @@ export class FilmService {
     });
   }
 
-  public getAllFilmsMetadata(): Observable<Film[]> {
-    return new Observable<Film[]>((observer) => {
+  public getAllFilmsMetadata(): Observable<IFilm[]> {
+    return new Observable<IFilm[]>((observer) => {
       this.apolloClientService
         .getClient()
         .query({

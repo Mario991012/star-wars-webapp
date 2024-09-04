@@ -1,13 +1,8 @@
-<!-- src/app/presentation/layouts/authorized-layout/authorized-layout.component.html -->
 <div class="authorized-layout-container">
-    <div class="sidebar-container">
-        <app-sidebar
-        [routes]="routes"
-        (selectedRouteEmitter)="goToRoute( $event )"
-    ></app-sidebar>
-    </div>
-    <div class="content-container">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="sidebar-container">
+    <app-sidebar [routes]="routes" (selectedRouteEmitter)="goToRoute( $event )"></app-sidebar>
   </div>
-  
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

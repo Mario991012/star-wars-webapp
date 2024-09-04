@@ -1,0 +1,26 @@
+/* Remove card styling */
+.vehicle-details {
+    padding: 20px;
+    background-color: #fff; /* Set a background color if needed */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .vehicle-details {
+      padding: 16px;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .container {
+      max-width: 800px;
+    }
+  }
+  
