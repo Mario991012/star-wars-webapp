@@ -3,7 +3,7 @@
 mat-card {
     @include card-style(white, black);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 var(--spacing-extra-small) var(--spacing-small) rgba(0, 0, 0, 0.2);
 }
 
 mat-card:hover {
@@ -17,5 +17,5 @@ mat-card-title {
 }
 
 mat-card-subtitle {
-    color: #666;
+    color: var(--color-primary);
 }

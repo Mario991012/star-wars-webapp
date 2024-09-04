@@ -7,38 +7,16 @@
 @mixin card-style($bg-color, $text-color) {
     background-color: $bg-color;
     color: $text-color;
-    padding: $spacing-small $spacing-medium;
+    padding: var(--spacing-small) var(--spacing-medium);
     border: none;
-    border-radius: $border-radius-small;
-    box-shadow: $shadow-default;
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--shadow-default);
     font-family: $font-secondary;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
         background-color: darken($bg-color, 10%);
-        box-shadow: $shadow-hover;
-    }
-}
-
-@mixin typography($font-family, $font-size, $font-weight: normal, $line-height: 1.5, $letter-spacing: normal) {
-    font-family: $font-family;
-    font-size: $font-size;
-    font-weight: $font-weight;
-    line-height: $line-height;
-    letter-spacing: $letter-spacing;
-}
-
-@mixin card-style($padding: $spacing-medium, $radius: $border-radius-medium, $shadow: $shadow-default) {
-    background-color: #fff;
-    padding: $padding;
-    border-radius: $radius;
-    box-shadow: $shadow;
-    color: var(--color-primary);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: $shadow-hover;
+        box-shadow: var(--shadow-hover);
     }
 }

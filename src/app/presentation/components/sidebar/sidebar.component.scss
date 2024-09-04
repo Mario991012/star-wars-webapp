@@ -1,7 +1,7 @@
 .sidenav-container {
     height: 96vh;
     margin: 0;
-    border-radius: 8px;
+    border-radius: var(--border-radius-medium);
 }
 
 .sidenav {
@@ -16,7 +16,7 @@ mat-toolbar {
 
 mat-nav-list {
     padding: 0;
-    margin-top: 4px;
+    margin-top: var(--spacing-extra-small);
 }
 
 mat-list-item {
