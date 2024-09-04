@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { IResponse } from '../../interfaces/response.interface';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../../../environments/environment';
+import { IResponse } from '../../../../core/interfaces/response.interface';
 
 /**
  * `LoginService` provides methods for handling user authentication and token management.

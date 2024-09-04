@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { LoginService } from './login.service';
-import { IResponse } from '../../interfaces/response.interface';
+import { IResponse } from '../../../core/interfaces/response.interface';
 import { environment } from '../../../../environments/environment';
 
 describe('LoginService', () => {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApolloClientService } from '../base/apollo-client.service';
+import { ApolloClientService } from '../../../core/services/apollo-client.service';
 import {
   GET_ALL_FILMS_METADATA,
   GET_FILMS_BY_TITLE,
