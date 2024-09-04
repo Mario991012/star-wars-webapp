@@ -10,6 +10,11 @@ Hi! My name is Mario Velasquez, and this is my Star Wars web application. This v
 - Angular Material
 - Boostrap
 
+## Observations
+- The vehicle details is not a popup/modal just to show my capacity to use ActivatedRoute, component creation and design a GraphQL query with parameters to filter.
+- Not found page is created and accessed from the sidebar to show different designs made.
+- The authorization service is mocked , allowing the log in for the example user and password indicated in the log in view.
+  
 ## Running the project
 ### Running tests
 Run `ng test` to execute all the unit tests with Karma.
@@ -113,7 +118,3 @@ To reach the goal of the project, I separated in several tasks all the project f
 - Check responsiveness and fix
 - Document functions, components and more with TSDoc
 - Generate general documentation
-
-## Observations
-- The vehicle details is not a popup/modal just to show my capacity to use ActivatedRoute, component creation and design a GraphQL query with parameters to filter.
-- Not found page is created and accessed from the sidebar to show different designs made.
