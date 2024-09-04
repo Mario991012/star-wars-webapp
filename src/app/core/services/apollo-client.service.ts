@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApolloClient, DocumentNode, InMemoryCache } from '@apollo/client/core';
 import { HttpLink } from '@apollo/client/link/http';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 /**
  * `ApolloClientService` is a service that provides a configured instance of the Apollo Client 

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 import { LoginComponent } from './login.component';
-import { LoginService } from '../../../core/services/login/login.service';
+import { LoginService } from '../../../data/auth/services/login/login.service';
 import { IResponse } from '../../../core/interfaces/response.interface';
 import { By } from '@angular/platform-browser';
 

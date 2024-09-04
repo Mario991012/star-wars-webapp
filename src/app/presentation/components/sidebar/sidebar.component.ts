@@ -1,4 +1,4 @@
-import { LoginService } from './../../../core/services/login/login.service';
+import { LoginService } from '../../../data/auth/services/login/login.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouteData } from '../../interfaces/route-data.interface';
 import { MatList, MatListItem, MatNavList } from '@angular/material/list';

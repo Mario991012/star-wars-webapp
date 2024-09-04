@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApolloClientService } from '../base/apollo-client.service';
+import { ApolloClientService } from '../../../core/services/apollo-client.service';
 import {
   IAllVehiclesData,
   IVehicle,
