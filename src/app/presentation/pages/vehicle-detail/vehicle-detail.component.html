@@ -1,5 +1,5 @@
 <div class="mt-4">
-	<div *ngIf="(vehicle$ | async) as vehicle; else loadingOrError">
+	<div *ngIf="(vehicle$ | async) as vehicle">
 		<h1 class="text-center">vehicle: {{ vehicle.name }}</h1>
 		<div class="row">
 			<!-- Basic Vehicle Details -->
@@ -48,7 +48,9 @@
 						</ng-template>
 					</mat-card-content>
 				</mat-card>
+			</div>
 
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<mat-card class="mb-4">
 					<mat-card-header>
 						<mat-card-title>
@@ -73,9 +75,9 @@
 	</div>
 
 	<!-- Loading or Error State -->
-	<ng-template #loadingOrError>
-		<div class="text-center">
-			Loading...
+	<ng-container *ngIf="error$ | async as errorMessage">
+		<div *ngIf="errorMessage" class="text-center">
+		  <h4>{{ errorMessage }}</h4>
 		</div>
-	</ng-template>
+	  </ng-container>
 </div>
