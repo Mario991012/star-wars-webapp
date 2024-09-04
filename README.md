@@ -3,6 +3,8 @@
 
 Hi! My name is Mario Velasquez, and this is my Star Wars web application. This version uses:
 - Angular 18.2.2
+- Node 20.17.0
+- npm 10.8.3
 - GraphQL 
 - Apollo Client
 - Angular Material
