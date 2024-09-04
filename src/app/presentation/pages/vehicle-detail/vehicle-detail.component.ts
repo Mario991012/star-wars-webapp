@@ -5,12 +5,12 @@ import { IVehicle } from '../../../data/graphql/interfaces/vehicle.interface';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { PipesModule } from '../../shared/pipes/pipes.module';
 
 @Component({
   selector: 'app-vehicle-detail',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatProgressSpinner],
+  imports: [CommonModule, MatCardModule, PipesModule],
   templateUrl: './vehicle-detail.component.html',
   styleUrl: './vehicle-detail.component.scss'
 })

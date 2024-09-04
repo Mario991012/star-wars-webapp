@@ -14,7 +14,7 @@
 						<p><strong>Model:</strong> {{ vehicle.model }}</p>
 						<p><strong>Manufacturer(s):</strong> {{ vehicle.manufacturers.join(', ') }}</p>
 						<p><strong>Cargo Capacity:</strong> {{ vehicle.cargoCapacity | number }} kg</p>
-						<p><strong>Cost in Credits:</strong> {{ vehicle.costInCredits | number }} credits</p>
+						<p><strong>Cost in Credits:</strong> {{ vehicle.costInCredits | currencyFormatter: "credits" : "after" }}</p>
 						<p><strong>Max Atmosphering Speed:</strong> {{ vehicle.maxAtmospheringSpeed | number }} km/h</p>
 						<p><strong>Crew:</strong> {{ vehicle.crew }}</p>
 						<p><strong>Passengers:</strong> {{ vehicle.passengers }}</p>
@@ -75,7 +75,7 @@
 	<!-- Loading or Error State -->
 	<ng-template #loadingOrError>
 		<div class="text-center">
-			<mat-spinner *ngIf="loading" diameter="50"></mat-spinner>
+			Loading...
 		</div>
 	</ng-template>
 </div>
