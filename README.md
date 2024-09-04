@@ -78,32 +78,36 @@ To reach the goal of the project, I separated in several tasks all the project f
 - Create GraphQL base service
 - Create example queries
 - Create layouts
--- authorized layout
--- unauthorized layout
+  - authorized layout
+  - unauthorized layout
 - Create Authentication guard
 - Create Login
--- Login view
--- Login service
--- Integrate Authentication guard with login
+  - Login view
+  - Login service
+  - Integrate Authentication guard with login
+- Sidebar
 - Film list
--- graphql queries
--- film dialogs
--- film interfaces
--- film filters
--- unit tests
+  - Create/Reuse reusable components
+  - graphql queries
+  - film dialogs
+  - film interfaces
+  - film filters
+  - unit tests
 - people list
--- graphql queries
--- people dialogs
--- interfaces
--- people filters
--- unit tests
+  - Create/Reuse reusable components
+  - graphql queries
+  - people dialogs
+  - interfaces
+  - people filters
+  - unit tests
 - vehicles
--- graphql queries
--- interfaces
--- vehicle filters
--- vehicle list
--- vehicle details
--- unit tests
+  - Create/Reuse reusable components
+  - graphql queries
+  - interfaces
+  - vehicle filters
+  - vehicle list
+  - vehicle details
+  - unit tests
 - Check responsiveness and fix
 - Document functions, components and more with TSDoc
 - Generate general documentation
