@@ -3,6 +3,7 @@ export interface IVehicle {
   consumables: string;
   costInCredits: number;
   crew: string;
+  id: string;
   manufacturers: string[];
   model: string;
   name: string;

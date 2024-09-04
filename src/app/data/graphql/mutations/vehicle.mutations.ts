@@ -8,6 +8,7 @@ export const GET_ALL_VEHICLES_METADATA: DocumentNode = gql`
         consumables
         costInCredits
         crew
+        id
         model
         name
         maxAtmospheringSpeed

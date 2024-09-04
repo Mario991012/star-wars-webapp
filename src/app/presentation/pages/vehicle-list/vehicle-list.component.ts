@@ -6,6 +6,7 @@ import { VehicleService } from '../../../data/graphql/services/vehicle.service';
 import { CommonModule } from '@angular/common';
 import { FilterFormComponent } from '../../components/filters/filter-form/filter-form.component';
 import { VehicleCardComponent } from '../../components/cards/vehicle-card/vehicle-card.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -20,6 +21,8 @@ export class VehicleListComponent {
   error$!: Observable<string>;
   private destroy$ = new Subject<void>();
   private vehicleService = inject(VehicleService);
+  private router = inject(Router);
+
   filterFields: IFilterForm[] = [
     { label: 'Name', formControlName: 'name' },
     { label: 'Manufacturers', formControlName: 'manufacturers' },
@@ -38,7 +41,8 @@ export class VehicleListComponent {
   }
 
   public goToDetails(character: IVehicle): void {
-    //TODO: Router to vehicle-details
+    console.log("character", character)
+    this.router.navigate(["/star-wars/vehicles/details/", character.id ]);
   }
 
   private getCharactersMetadata(): void {
