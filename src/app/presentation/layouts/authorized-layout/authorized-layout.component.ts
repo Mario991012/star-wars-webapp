@@ -26,15 +26,15 @@ export class AuthorizedLayoutComponent {
       selected: false,
     },
     {
-      route: "/star-wars/planets",
-      title: "Planets",
-      icon: "public",
+      route: "/star-wars/vehicles/vehicle-list",
+      title: "Vehicles",
+      icon: "commute",
       selected: false,
     },
     {
-      route: "/star-wars/vehicles",
-      title: "Vehicles",
-      icon: "commute",
+      route: "/star-wars/not-found",
+      title: "Not Found",
+      icon: "public",
       selected: false,
     },
   ]

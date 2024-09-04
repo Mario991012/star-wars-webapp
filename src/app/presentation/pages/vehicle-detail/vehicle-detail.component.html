@@ -1,0 +1,81 @@
+<div class="mt-4">
+	<div *ngIf="(vehicle$ | async) as vehicle; else loadingOrError">
+		<h1 class="text-center">vehicle: {{ vehicle.name }}</h1>
+		<div class="row">
+			<!-- Basic Vehicle Details -->
+			<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+				<mat-card class="mb-4">
+					<mat-card-header>
+						<mat-card-title>
+							<h2>General information</h2>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content>
+						<p><strong>Model:</strong> {{ vehicle.model }}</p>
+						<p><strong>Manufacturer(s):</strong> {{ vehicle.manufacturers.join(', ') }}</p>
+						<p><strong>Cargo Capacity:</strong> {{ vehicle.cargoCapacity | number }} kg</p>
+						<p><strong>Cost in Credits:</strong> {{ vehicle.costInCredits | currencyFormatter: "credits" : "after" }}</p>
+						<p><strong>Max Atmosphering Speed:</strong> {{ vehicle.maxAtmospheringSpeed | number }} km/h</p>
+						<p><strong>Crew:</strong> {{ vehicle.crew }}</p>
+						<p><strong>Passengers:</strong> {{ vehicle.passengers }}</p>
+						<p><strong>Vehicle Class:</strong> {{ vehicle.vehicleClass }}</p>
+						<p><strong>Consumables:</strong> {{ vehicle.consumables }}</p>
+					</mat-card-content>
+				</mat-card>
+			</div>
+
+			<!-- Films and Pilots -->
+			<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+				<mat-card class="mb-4">
+					<mat-card-header>
+						<mat-card-title>
+							<h2>Film Appearances</h2>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content>
+						<ng-container *ngIf="vehicle.filmConnection.films.length; else noFilms">
+							<ul class="list-unstyled">
+								<li *ngFor="let film of vehicle.filmConnection.films" class="mb-2">
+									<strong>Title:</strong> {{ film.title }}<br>
+									<strong>Director:</strong> {{ film.director }}<br>
+									<strong>Producers:</strong> {{ film.producers.join(', ') }}<br>
+									<strong>Release Date:</strong> {{ film.releaseDate }}
+								</li>
+							</ul>
+						</ng-container>
+						<ng-template #noFilms>
+							<p>No films available.</p>
+						</ng-template>
+					</mat-card-content>
+				</mat-card>
+
+				<mat-card class="mb-4">
+					<mat-card-header>
+						<mat-card-title>
+							<h2>Featured Pilots</h2>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content>
+						<ng-container *ngIf="vehicle.pilotConnection.pilots.length; else noPilots">
+							<ul class="list-unstyled">
+								<li *ngFor="let pilot of vehicle.pilotConnection.pilots" class="mb-2">
+									{{ pilot.name }}
+								</li>
+							</ul>
+						</ng-container>
+						<ng-template #noPilots>
+							<p>There are no pilots registered.</p>
+						</ng-template>
+					</mat-card-content>
+				</mat-card>
+			</div>
+		</div>
+	</div>
+
+	<!-- Loading or Error State -->
+	<ng-template #loadingOrError>
+		<div class="text-center">
+			Loading...
+		</div>
+	</ng-template>
+</div>

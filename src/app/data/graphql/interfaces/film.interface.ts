@@ -1,7 +1,7 @@
 import { ICharacter } from './character.interface';
 import { Planet } from './planet.interface';
 
-export interface Film {
+export interface IFilm {
   created: string;
   director: string;
   edited: string;
@@ -23,7 +23,7 @@ export interface AllFilmsData {
   data: {
     allFilms: {
       totalCount: number;
-      films: Film[];
+      films: IFilm[];
     };
   };
 }

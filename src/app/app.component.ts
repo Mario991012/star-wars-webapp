@@ -11,7 +11,7 @@ import { FilmListComponent } from './presentation/pages/film-list/film-list.comp
   imports: [
     CommonModule, 
     RouterModule,
-    FilmListComponent
+    FilmListComponent,
   ],
 })
 export class AppComponent {
