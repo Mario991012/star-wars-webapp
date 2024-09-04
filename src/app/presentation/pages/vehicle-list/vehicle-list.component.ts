@@ -26,7 +26,7 @@ export class VehicleListComponent {
   filterFields: IFilterForm[] = [
     { label: 'Name', formControlName: 'name' },
     { label: 'Manufacturers', formControlName: 'manufacturers' },
-    { label: 'Vehicle class', formControlName: 'vehicle_class' },
+    { label: 'Vehicle class', formControlName: 'vehicleClass' },
     { label: 'Model', formControlName: 'model' }
   ];
 
