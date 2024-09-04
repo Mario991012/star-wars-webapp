@@ -1,0 +1,33 @@
+.sidenav-container {
+    height: 96vh;
+    margin: 0;
+    border-radius: var(--border-radius-medium);
+}
+
+.sidenav {
+    width: 250px;
+    border-radius: 0;
+}
+
+mat-toolbar {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+mat-nav-list {
+    padding: 0;
+    margin-top: var(--spacing-extra-small);
+}
+
+mat-list-item {
+    padding: 16px;
+    cursor: pointer;
+}
+
+mat-list-item mat-icon {
+    margin-right: 16px;
+}
+
+.selected {
+    background-color: var(--color-secondary);
+}
