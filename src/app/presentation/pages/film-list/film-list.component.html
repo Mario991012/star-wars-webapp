@@ -1,6 +1,15 @@
 <div class="list">
   <h2>Star Wars - List of Films</h2>
   <app-filter-form [fields]="filterFields" (filterChanged)="onFilterChanged($event)"></app-filter-form>
+
+  <!-- Display error message -->
+  <ng-container *ngIf="error$ | async as errorMessage">
+    <div *ngIf="errorMessage" class="text-center">
+      <h4>{{ errorMessage }}</h4>
+    </div>
+  </ng-container>
+
+  <!-- Display films when no error -->
   <div *ngIf="filteredFilms$ | async as films">
     <div *ngIf="films.length" class="row">
       <div *ngFor="let film of films" class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4" (click)="openDataDialog(film)">

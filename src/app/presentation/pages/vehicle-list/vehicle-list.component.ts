@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { catchError, map, Observable, Subject, takeUntil } from 'rxjs';
+import { catchError, map, Observable, of, Subject, takeUntil } from 'rxjs';
 import { IVehicle } from '../../../data/graphql/interfaces/vehicle.interface';
 import { IFilterForm } from '../../interfaces/filter-form.interface';
 import { VehicleService } from '../../../data/graphql/services/vehicle.service';
@@ -68,7 +68,7 @@ export class VehicleListComponent {
    * It triggers the fetching of vehicle metadata.
    */
   ngOnInit(): void {
-    this.getCharactersMetadata();
+    this.getVehiclesMetadata();
   }
 
   /**
@@ -82,33 +82,32 @@ export class VehicleListComponent {
   /**
    * Navigates to the vehicle detail page when a vehicle is selected.
    * 
-   * @param character - The selected `IVehicle` object for which the details will be shown.
+   * @param vehicle - The selected `IVehicle` object for which the details will be shown.
    */
-  public goToDetails(character: IVehicle): void {
-    console.log("character", character);
-    this.router.navigate(["/star-wars/vehicles/details/", character.id]);
+  public goToDetails(vehicle: IVehicle): void {
+    this.router.navigate(["/star-wars/vehicles/details/", vehicle.id]);
   }
 
   /**
    * Fetches metadata for all vehicles from the GraphQL API using the `VehicleService`.
    * It also handles potential errors and initializes the filtered vehicles observable.
    */
-  private getCharactersMetadata(): void {
+  private getVehiclesMetadata(): void {
+    this.error$ = of('');
+  
     this.vehicles$ = this.vehicleService.getAllVehiclesMetadata().pipe(
       takeUntil(this.destroy$),
       map((result) => result || []),
       catchError((error) => {
         console.error('Error fetching vehicle list:', error);
-        return [];
+        this.error$ = of('Something went wrong while getting the vehicles. Reload the page and try again.');
+        return of([]);
       })
     );
-
+  
     this.filteredVehicles$ = this.vehicles$;
-
-    this.error$ = this.vehicles$.pipe(
-      map((characters) => (characters.length ? `There has been an error` : 'No vehicles found'))
-    );
   }
+  
 
   /**
    * Handles changes in the filter form and updates the filtered vehicles list based on the provided filters.

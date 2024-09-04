@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilmCardComponent } from '../../components/cards/film-card/film-card.component';
-import { Observable, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { catchError, map, takeUntil } from 'rxjs/operators';
 import { FilmService } from '../../../data/graphql/services/film.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -115,22 +115,21 @@ export class FilmListComponent implements OnInit, OnDestroy {
    * It also handles potential errors and initializes the filtered films observable.
    */
   private getFilmsMetadata(): void {
+    this.error$ = of(''); // Initialize the error observable
+  
     this.films$ = this.filmService.getAllFilmsMetadata().pipe(
       takeUntil(this.destroy$),
       map((result) => result || []),
       catchError((error) => {
         console.error('Error fetching film list:', error);
-        return [];
+        this.error$ = of('Something were wrong while getting the films. Reload the page and try again.');
+        return of([]);
       })
     );
-
+  
     this.filteredFilms$ = this.films$;
-
-    this.error$ = this.films$.pipe(
-      map((films) => (films.length ? '' : 'No films found'))
-    );
   }
-
+  
   /**
    * Handles changes in the filter form and updates the filtered films list based on the provided filters.
    *

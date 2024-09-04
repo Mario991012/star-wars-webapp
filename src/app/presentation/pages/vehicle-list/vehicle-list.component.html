@@ -1,7 +1,14 @@
 <div class="list">
   <h2>Star Wars - List of vehicles</h2>
   <app-filter-form [fields]="filterFields" (filterChanged)="onFilterChanged($event)"></app-filter-form>
-  <div *ngIf="(filteredVehicles$ | async) as vehicles; else loadingOrError">
+
+  <ng-container *ngIf="error$ | async as errorMessage">
+    <div *ngIf="errorMessage" class="text-center">
+      <h4>{{ errorMessage }}</h4>
+    </div>
+  </ng-container>
+  
+  <div *ngIf="(filteredVehicles$ | async) as vehicles">
     <div *ngIf="vehicles.length" class="row">
       <div *ngFor="let vehicle of vehicles" class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-4"
         (click)="goToDetails(vehicle)">
@@ -9,10 +16,4 @@
       </div>
     </div>
   </div>
-  <!-- Loading or Error State -->
-  <ng-template #loadingOrError>
-    <div class="text-center">
-      Loading...
-    </div>
-  </ng-template>
 </div>

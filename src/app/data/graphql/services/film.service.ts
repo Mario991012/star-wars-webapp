@@ -32,11 +32,7 @@ export class FilmService {
   public getFilmsByTitle(title: string): Observable<AllFilmsData> {
     return new Observable<AllFilmsData>((observer) => {
       this.apolloClientService
-        .getClient()
-        .query({
-          query: GET_FILMS_BY_TITLE,
-          variables: { title },
-        })
+        .executeQuery(GET_FILMS_BY_TITLE, { title })
         .then((result) => {
           observer.next(result?.data);
           observer.complete();
@@ -57,10 +53,7 @@ export class FilmService {
   public getAllFilmsMetadata(): Observable<IFilm[]> {
     return new Observable<IFilm[]>((observer) => {
       this.apolloClientService
-        .getClient()
-        .query({
-          query: GET_ALL_FILMS_METADATA,
-        })
+        .executeQuery(GET_ALL_FILMS_METADATA)
         .then((result: AllFilmsData) => {
           observer.next(result?.data?.allFilms?.films);
           observer.complete();

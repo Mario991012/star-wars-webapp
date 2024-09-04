@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { catchError, map, Observable, Subject, takeUntil } from 'rxjs';
+import { catchError, map, Observable, of, Subject, takeUntil } from 'rxjs';
 import { ICharacter } from '../../../data/graphql/interfaces/character.interface';
 import { CharacterService } from '../../../data/graphql/services/character.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -91,21 +91,25 @@ export class PeopleListComponent {
    * It also handles potential errors and initializes the filtered characters observable.
    */
   private getCharactersMetadata(): void {
+    this.error$ = of('');
+    
     this.characters$ = this.characterService.getAllCharactersMetadata().pipe(
       takeUntil(this.destroy$),
       map((result) => result || []),
       catchError((error) => {
         console.error('Error fetching character list:', error);
-        return [];
+        this.error$ = of('Something went wrong while getting the characters. Reload the page and try again.');
+        return of([]);
       })
     );
-
+  
     this.filteredCharacters$ = this.characters$;
-
+  
     this.error$ = this.characters$.pipe(
-      map((characters) => (characters.length ? `There has been an error` : 'No characters found'))
+      map((characters) => (characters.length ? '' : 'No characters found'))
     );
   }
+  
 
   /**
    * Handles changes in the filter form and updates the filtered characters list based on the provided filters.
