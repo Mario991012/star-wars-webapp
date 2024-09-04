@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { LoginService } from '../../../core/services/login/login.service';
+import { LoginService } from '../../../data/auth/services/login/login.service';
 import { IResponse } from '../../../core/interfaces/response.interface';
 import { Router } from '@angular/router';
 

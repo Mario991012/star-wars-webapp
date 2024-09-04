@@ -1,27 +1,113 @@
-# StartWarsWebapp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
+# Star Wars Blog
 
-## Development server
+Hi! My name is Mario Velasquez, and this is my Star Wars web application. This version uses:
+- Angular 18.2.2
+- GraphQL 
+- Apollo Client
+- Angular Material
+- Boostrap
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Running the project
+### Running tests
+Run `ng test` to execute all the unit tests with Karma.
+***All the components, services and pipes have their own unit tests.*** 
 
-## Code scaffolding
+### Running locally
+Run `ng serve` to run the application in the port 4200 as default.
+### Building the project
+Run `ng build` to build the application.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Documentation
+- All functions, components, services, pipes that have logic are documented using TSDoc, having a brief description of what the parameters, functionality and responses are.
+- This was generated with AI and carefully reviewed by me in order to reduce documentation time while maintaining the quality of code and documentation.
 
-## Build
+## Architecture
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The architecture follows the concept of the Onion Layer Architecture which define the separation of concerns. In the folder structure there is a separation between the presentation layer, data layer and core layer.
+- **Presentation layer:** Responsible for interacting with the user and delivering the UI. Includes single components, layouts, pages, shared resources such as pipes and interfaces.
+- **Data layer:** This layer deals with external dependencies like APIs, databases, or third-party services. It handles fetching, saving, and interacting with the outside. This has all the related with data manipulation, such as client implementations, related interfaces, services for specific clients, etc. *Here the GraphQL implementation with Apollo Client and all the mutations used.*
+- **Core layer:** This layer contains the fundamental business logic of the web application. It is independent of external frameworks and libraries. This ensures that the most important logic is decoupled from infrastructure and technology concerns. Here the guards, configurations for the most important libraries, etc.
 
-## Running unit tests
+## Design decisions
+Following the separation of concerns, I took the decision for this structure based on the domain of each one of the components and tools implemented. This will allow the project to grow in an organized and structured way.
+### Presentation layer folder structure
+- components
+- interfaces
+- layouts
+- pages
+- shared
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Data layer folder structure
+- graphql
+- auth
+- Open to add more domains*
 
-## Running end-to-end tests
+### Core layer folder structure
+- guards
+- interfaces
+- services
+- config
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Assets and environments
+Outside the application related functionality, the assets where located to store fonts, multimedia resources, styles using SCSS, etc.
 
-## Further help
+The global variables where separated based on the environment needed, using Angular's configuration.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Development
+- Production
+
+## Technologies and tools
+
+The decision to use these technologies was based on the simplicity, maintainability and experience that I actually have. This made the development to speed up a lot and bring a high quality code and UI made from scratch for this project.
+
+- Angular Material: Library with ready to use components such as cards, inputs, etc.
+- Bootstrap: Useful for the layout and grid system for responsiveness.
+- ng-mocks: Allow to mock components needed for testing purposes.
+- Apollo Client: Allows communication and easy configuration for GraphQL implementation.
+- Angular CLI: Generate automatically components, services, pipes and more.
+- Karma: Unit testing easy implementation and reporting.
+- Reactive forms: Easy implementation of forms and reactiveness.
+
+## Development execution
+To reach the goal of the project, I separated in several tasks all the project from scratch.
+
+- Create code base with Angular CLI
+- Create styles base
+- Implement Onion Layer Architecture
+- Create GraphQL base service
+- Create example queries
+- Create layouts
+  - authorized layout
+  - unauthorized layout
+- Create Authentication guard
+- Create Login
+  - Login view
+  - Login service
+  - Integrate Authentication guard with login
+- Sidebar
+- Film list
+  - Create/Reuse reusable components
+  - graphql queries
+  - film dialogs
+  - film interfaces
+  - film filters
+  - unit tests
+- people list
+  - Create/Reuse reusable components
+  - graphql queries
+  - people dialogs
+  - interfaces
+  - people filters
+  - unit tests
+- vehicles
+  - Create/Reuse reusable components
+  - graphql queries
+  - interfaces
+  - vehicle filters
+  - vehicle list
+  - vehicle details
+  - unit tests
+- Check responsiveness and fix
+- Document functions, components and more with TSDoc
+- Generate general documentation

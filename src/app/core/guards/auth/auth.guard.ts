@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoginService } from '../../services/login/login.service';
+import { LoginService } from '../../../data/auth/services/login/login.service';
 
 /**
  * `AuthGuard` is responsible for protecting routes by checking if the user is authenticated.
