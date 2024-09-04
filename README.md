@@ -111,3 +111,7 @@ To reach the goal of the project, I separated in several tasks all the project f
 - Check responsiveness and fix
 - Document functions, components and more with TSDoc
 - Generate general documentation
+
+## Observations
+- The vehicle details is not a popup/modal just to show my capacity to use ActivatedRoute, component creation and design a GraphQL query with parameters to filter.
+- Not found page is created and accessed from the sidebar to show different designs made.
