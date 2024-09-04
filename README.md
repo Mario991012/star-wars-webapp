@@ -1,3 +1,4 @@
+
 # Star Wars Blog
 
 Hi! My name is Mario Velasquez, and this is my Star Wars web application. This version uses:
@@ -67,3 +68,42 @@ The decision to use these technologies was based on the simplicity, maintainabil
 - Angular CLI: Generate automatically components, services, pipes and more.
 - Karma: Unit testing easy implementation and reporting.
 - Reactive forms: Easy implementation of forms and reactiveness.
+
+## Development execution
+To reach the goal of the project, I separated in several tasks all the project from scratch.
+
+- Create code base with Angular CLI
+- Create styles base
+- Implement Onion Layer Architecture
+- Create GraphQL base service
+- Create example queries
+- Create layouts
+-- authorized layout
+-- unauthorized layout
+- Create Authentication guard
+- Create Login
+-- Login view
+-- Login service
+-- Integrate Authentication guard with login
+- Film list
+-- graphql queries
+-- film dialogs
+-- film interfaces
+-- film filters
+-- unit tests
+- people list
+-- graphql queries
+-- people dialogs
+-- interfaces
+-- people filters
+-- unit tests
+- vehicles
+-- graphql queries
+-- interfaces
+-- vehicle filters
+-- vehicle list
+-- vehicle details
+-- unit tests
+- Check responsiveness and fix
+- Document functions, components and more with TSDoc
+- Generate general documentation
