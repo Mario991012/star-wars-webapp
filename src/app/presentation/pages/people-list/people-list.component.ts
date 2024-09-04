@@ -90,7 +90,7 @@ export class PeopleListComponent {
    * Fetches metadata for all characters from the GraphQL API using the `CharacterService`.
    * It also handles potential errors and initializes the filtered characters observable.
    */
-  private getCharactersMetadata(): void {
+  getCharactersMetadata(): void {
     this.error$ = of('');
     
     this.characters$ = this.characterService.getAllCharactersMetadata().pipe(
@@ -104,10 +104,6 @@ export class PeopleListComponent {
     );
   
     this.filteredCharacters$ = this.characters$;
-  
-    this.error$ = this.characters$.pipe(
-      map((characters) => (characters.length ? '' : 'No characters found'))
-    );
   }
   
 

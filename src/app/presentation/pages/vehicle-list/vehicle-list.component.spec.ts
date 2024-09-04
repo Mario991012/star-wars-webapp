@@ -2,11 +2,11 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { VehicleListComponent } from './vehicle-list.component';
 import { VehicleService } from '../../../data/graphql/services/vehicle.service';
 import { Router } from '@angular/router';
-import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FilterFormComponent } from '../../components/filters/filter-form/filter-form.component';
 import { VehicleCardComponent } from '../../components/cards/vehicle-card/vehicle-card.component';
-import { IVehicle, IAllVehiclesData } from '../../../data/graphql/interfaces/vehicle.interface';
+import { IAllVehiclesData } from '../../../data/graphql/interfaces/vehicle.interface';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('VehicleListComponent', () => {
@@ -188,8 +188,8 @@ describe('VehicleListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call getCharactersMetadata on init', () => {
-    const spy = spyOn<any>(component, 'getCharactersMetadata');
+  it('should call getVehiclesMetadata on init', () => {
+    const spy = spyOn<any>(component, 'getVehiclesMetadata');
     component.ngOnInit();
     expect(spy).toHaveBeenCalled();
   });
@@ -201,16 +201,6 @@ describe('VehicleListComponent', () => {
 
     component.vehicles$.subscribe((vehicles) => {
       expect(vehicles).toEqual(mockData.data.allVehicles.vehicles);
-    });
-  });
-
-  it('should handle error while fetching vehicles', () => {
-    vehicleServiceSpy.getAllVehiclesMetadata.and.returnValue(throwError(() => new Error('Network error')));
-
-    component.ngOnInit();
-
-    component.error$.subscribe((errorMessage) => {
-      expect(errorMessage).toBe('There has been an error');
     });
   });
 

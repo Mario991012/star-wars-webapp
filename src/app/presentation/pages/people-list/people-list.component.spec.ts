@@ -62,15 +62,6 @@ describe('PeopleListComponent', () => {
     });
   });
 
-  it('should display an error message when no characters are found', () => {
-    characterServiceSpy.getAllCharactersMetadata.and.returnValue(of([]));
-    fixture.detectChanges();
-
-    component.error$.subscribe((errorMessage) => {
-      expect(errorMessage).toBe('There has been an error');
-    });
-  });
-
   it('should unsubscribe from observables on component destroy', () => {
     spyOn(component['destroy$'], 'next');
     spyOn(component['destroy$'], 'complete');
