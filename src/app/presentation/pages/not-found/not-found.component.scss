@@ -1,3 +1,9 @@
 .complete-centered-container > img {
     padding: 25px;
 }
+
+@media (max-width: 769px) {
+	.complete-centered-container > img {
+		width: 100%;
+	}
+}
