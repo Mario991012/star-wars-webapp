@@ -16,6 +16,9 @@ mat-card-header {
     justify-content: center;
 }
 
+.more-details {
+    color: var(--color-secondary);
+}
 mat-card-content {
     padding: var(--spacing-small) !important;
 }
