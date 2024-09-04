@@ -4,6 +4,8 @@ import { AuthorizedLayoutComponent } from './authorized-layout.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { By } from '@angular/platform-browser';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 describe('AuthorizedLayoutComponent', () => {
   let component: AuthorizedLayoutComponent;
@@ -12,10 +14,12 @@ describe('AuthorizedLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ 
+      imports: [
         AuthorizedLayoutComponent,
-        NoopAnimationsModule,  
+        NoopAnimationsModule,
         RouterModule.forRoot([]),
+        MatIconModule,
+        MatButtonModule,
       ]
     }).compileComponents();
   });
@@ -44,8 +48,45 @@ describe('AuthorizedLayoutComponent', () => {
     const route = '/star-wars/film-list';
     spyOn(router, 'navigate');
     component.goToRoute(route);
-    
+
     expect(component.routes.find(r => r.route === route)?.selected).toBeTrue();
     expect(router.navigate).toHaveBeenCalledWith([route]);
+  });
+
+  it('should toggle the sidebar open and closed', () => {
+    expect(component.isSidebarOpen).toBeFalse();
+
+    component.toggleSidebar();
+    expect(component.isSidebarOpen).toBeTrue();
+
+    component.toggleSidebar();
+    expect(component.isSidebarOpen).toBeFalse();
+  });
+
+  it('should close the sidebar when clicking outside (overlay)', () => {
+    component.isSidebarOpen = true;
+    fixture.detectChanges();
+
+    const overlayDebugElement = fixture.debugElement.query(By.css('.overlay'));
+    overlayDebugElement.triggerEventHandler('click', null);
+
+    expect(component.isSidebarOpen).toBeFalse();
+  });
+
+  it('should hide the hamburger button when sidebar is open and show it when closed', () => {
+    let hamburgerButton = fixture.debugElement.query(By.css('.menu-button'));
+    expect(hamburgerButton).toBeTruthy();
+
+    component.toggleSidebar();
+    fixture.detectChanges();
+
+    hamburgerButton = fixture.debugElement.query(By.css('.menu-button'));
+    expect(hamburgerButton).toBeFalsy();
+
+    component.toggleSidebar();
+    fixture.detectChanges();
+
+    hamburgerButton = fixture.debugElement.query(By.css('.menu-button'));
+    expect(hamburgerButton).toBeTruthy();
   });
 });
