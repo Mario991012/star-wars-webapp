@@ -1,7 +1,17 @@
 <div class="authorized-layout-container">
-  <div class="sidebar-container">
-    <app-sidebar [routes]="routes" (selectedRouteEmitter)="goToRoute( $event )"></app-sidebar>
+  <button *ngIf="!isSidebarOpen" class="menu-button" mat-icon-button (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div *ngIf="isSidebarOpen" class="overlay" (click)="closeSidebar()"></div>
+
+  <div class="sidebar-container" [class.sidebar-open]="isSidebarOpen">
+    <button class="close-button" mat-icon-button (click)="closeSidebar()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <app-sidebar [routes]="routes" (selectedRouteEmitter)="goToRoute($event)"></app-sidebar>
   </div>
+
   <div class="content-container">
     <router-outlet></router-outlet>
   </div>
