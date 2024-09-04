@@ -7,33 +7,20 @@ export class CurrencyFormatterPipe implements PipeTransform {
   transform(
     amount: number | string, 
     currencySymbol: string = '$', 
-    position: 'before' | 'after' = 'before', 
-    useCommas: boolean = false
+    position: 'before' | 'after' = 'before'
   ): string {
     if (typeof amount === 'string') {
-      try {
-        amount = parseFloat(amount);
-      } catch (error) {
-        return "Unknown";
-      }
+      amount = parseFloat(amount);
     }
-    
+
     if (isNaN(amount)) {
       return 'Unknown';
     }
     
-    const formattedAmount = useCommas 
-      ? this.formatWithCommas(amount.toFixed(2).toString())
-      : amount.toFixed(2);
+    const formattedAmount = amount.toFixed(2);
     
     return position === 'before'
       ? `${currencySymbol} ${formattedAmount}`
       : `${formattedAmount} ${currencySymbol}`;
-  }
-
-  private formatWithCommas(amount: string): string {
-    const [integerPart, decimalPart] = amount.split('.');
-    const withCommas = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return decimalPart ? `${withCommas}.${decimalPart}` : withCommas;
   }
 }
