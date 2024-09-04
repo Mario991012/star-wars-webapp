@@ -32,7 +32,7 @@ export class AuthorizedLayoutComponent {
       selected: false,
     },
     {
-      route: "/star-wars/vehicles",
+      route: "/star-wars/vehicle-list",
       title: "Vehicles",
       icon: "commute",
       selected: false,

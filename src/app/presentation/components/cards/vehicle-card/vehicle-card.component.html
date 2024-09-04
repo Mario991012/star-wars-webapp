@@ -1,0 +1,25 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="centered-container">
+        <h3>{{ vehicle?.name }}</h3>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="centered-container">
+      <p><strong>Class:</strong> {{ vehicle?.vehicleClass }}</p>
+      <p><strong>Model:</strong> {{ vehicle?.model }}</p>
+      <p><strong>Cost:</strong> {{ (vehicle?.costInCredits || '') | currencyFormatter: "credits" : "after" }}</p>
+      <p><strong>Max atmosphering speed:</strong> {{ (vehicle?.maxAtmospheringSpeed || "") | speedFormatter: "km/h" }}
+      </p>
+    </div>
+  </mat-card-content>
+  <mat-card-footer class="centered-container">
+    <mat-chip-set aria-label="Film producers">
+      <div>
+        <mat-chip *ngFor="let manufacturers of vehicle?.manufacturers">{{ manufacturers }}</mat-chip>
+      </div>
+    </mat-chip-set>
+  </mat-card-footer>
+</mat-card>

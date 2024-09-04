@@ -6,6 +6,7 @@ import { AuthorizedLayoutComponent } from './presentation/layouts/authorized-lay
 import { NotFoundComponent } from './presentation/pages/not-found/not-found.component';
 import { AuthGuard } from './core/guards/auth/auth.guard';
 import { PeopleListComponent } from './presentation/pages/people-list/people-list.component';
+import { VehicleListComponent } from './presentation/pages/vehicle-list/vehicle-list.component';
 
 export const routes: Routes = [
     {
@@ -17,6 +18,7 @@ export const routes: Routes = [
             { path: "home", redirectTo: "film-list", pathMatch: "full" },
             { path: "film-list", component: FilmListComponent },
             { path: "people-list", component: PeopleListComponent },
+            { path: "vehicle-list", component: VehicleListComponent },
             { path: "**", component: NotFoundComponent }
         ]
     },
