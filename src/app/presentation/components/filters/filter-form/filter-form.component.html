@@ -1,8 +1,8 @@
 <form [formGroup]="filterForm">
-  <ng-container *ngFor="let field of fields">
-    <mat-form-field appearance="fill">
+  <div *ngFor="let field of fields" class="form-container">
+    <mat-form-field appearance="fill" class="full-width">
       <mat-label>{{ field.label }}</mat-label>
       <input matInput [formControlName]="field.formControlName" [id]="field.formControlName">
     </mat-form-field>
-  </ng-container>
+  </div>
 </form>
