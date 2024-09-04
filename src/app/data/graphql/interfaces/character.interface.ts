@@ -26,10 +26,10 @@ export interface ICharacter {
 }
 
 export interface AllCharactersData {
-    data: {
-        allPeople: {
-        totalCount: number;
-        people: ICharacter[];
-      };
+  data: {
+    allPeople: {
+      totalCount: number;
+      people: ICharacter[];
     };
-  }
+  };
+}
